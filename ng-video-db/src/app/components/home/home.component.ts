@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription, tap } from 'rxjs';
 import { APIResponse } from 'src/app/models/apiResponse.model';
 import { Game } from 'src/app/models/game.model';
@@ -17,7 +17,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(
     private activedRoute: ActivatedRoute,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private router: Router
   ) {}
 
   ngOnDestroy(): void {
@@ -51,5 +52,9 @@ export class HomeComponent implements OnInit, OnDestroy {
         )
         .subscribe()
     );
+  }
+
+  openGameDetails(id: string) {
+    this.router.navigate(['details', id]);
   }
 }
