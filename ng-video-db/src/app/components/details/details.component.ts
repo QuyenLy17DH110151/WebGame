@@ -41,6 +41,9 @@ export class DetailsComponent implements OnInit, OnDestroy {
         .pipe(
           tap((game: Game) => {
             this.game = game;
+            setTimeout(() => {
+              this.gameRating = this.game.metacritic;
+            }, 0);
           })
         )
         .subscribe()
