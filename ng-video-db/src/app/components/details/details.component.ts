@@ -13,7 +13,23 @@ export class DetailsComponent implements OnInit, OnDestroy {
   private subs = new Subscription();
   gameRating: number = 0;
   gameId: string = '';
-  game!: Game;
+  game: Game = {
+    background_image: '',
+    id: '',
+    name: '',
+    released: '',
+    metacritic_url: '',
+    website: '',
+    description: '',
+    metacritic: 0,
+    genres: [],
+    parent_platforms: [],
+    publishers: [],
+    ratings: [],
+    screenshots: [],
+    trailers: [],
+  };
+
   constructor(
     private activedRoute: ActivatedRoute,
     private httpService: HttpService
